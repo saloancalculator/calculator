@@ -221,23 +221,61 @@
     </ul>
   </section>
 
-  <section id="purchase">
-    <h2 style="text-align: center;">Dapatkan Sekarang!</h2>
-    <div style="text-align: center;">
-      <h3><span class="original-price" style="text-decoration: line-through; color: #FFFFF;">RM 179</span></h3>
-      <p style="color: red; font-weight: bold;">Harga Pasaran</p>
-      <h1><span class="promo-price">RM 89</span></h1>
-      <h3 style="color: red;">Promosi kali ini terhad kepada 30 slot sahaja!</h3>
-      <h4 style="color: white;">Harga akan dinaikkan bila-bila masa sahaja!</h4>
-      <a href="https://toyyibpay.com/Sales-Advisor-Auto-Loan-Calculator" class="btn">Dapatkan Sekarang</a>
+  <!-- Bahagian dalam section#purchase yang dikemaskini -->
+
+<section id="purchase">
+
+<!-- Countdown Timer -->
+    <div style="max-width: 900px; margin: 20px auto; padding: 0 16px; text-align: center;">
+      <h3 style="color: #ffffff; font-weight: bold; font-size: 18px;">⏳ Tawaran Ini Akan Tamat Dalam:</h3>
+      <div id="countdown" style="font-size: 36px; font-weight: bold; color: #cc0000;"></div>
     </div>
-  </section>
+    <!-- End Countdown -->
+
+  <h2 style="text-align: center;">Dapatkan Sekarang!</h2>
+  <div style="text-align: center;">
+    <h3><span class="original-price" style="text-decoration: line-through; color: #FFFFF;">RM 179</span></h3>
+    <p style="color: red; font-weight: bold;">Harga Pasaran</p>
+    <h1><span class="promo-price">RM 89</span></h1>
+    <h3 style="color: red;">Promosi kali ini terhad kepada 30 slot sahaja!</h3>
+    <h4 style="color: white;">Harga akan dinaikkan bila-bila masa sahaja!</h4>
+
+    <a href="https://toyyibpay.com/Sales-Advisor-Auto-Loan-Calculator" class="btn">Dapatkan Sekarang</a>
+  </div>
+</section>
 
   <footer>
     <p>&copy; 2025 Sales Advisor Loan Calculator. Hak cipta terpelihara.</p>
   </footer>
 
   <div id="notification-container"></div>
+
+  <script>
+  function startCountdown(duration, display) {
+    let timer = duration, hours, minutes, seconds;
+    setInterval(function () {
+      hours = Math.floor(timer / 3600);
+      minutes = Math.floor((timer % 3600) / 60);
+      seconds = timer % 60;
+
+      hours = hours < 10 ? "0" + hours : hours;
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      display.textContent = hours + ":" + minutes + ":" + seconds;
+
+      if (--timer < 0) {
+        timer = duration; // auto reset
+      }
+    }, 1000);
+  }
+
+    window.onload = function () {
+    const fiveHours = 60 * 60 * 5;
+    const display = document.querySelector('#countdown');
+    startCountdown(fiveHours, display);
+  };
+</script>
 
   <script>
     const notifications = [
